@@ -2,6 +2,9 @@
 
 namespace DarthSoup\Rundeck\Model;
 
+/**
+ * AbstractModel
+ */
 abstract class AbstractModel
 {
     /**

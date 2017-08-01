@@ -2,12 +2,24 @@
 
 namespace DarthSoup\Rundeck\Model;
 
+/**
+ * Model SystemInfo
+ */
 class SystemInfo extends AbstractModel
 {
+    /**
+     * @var SystemInfoRundeck
+     */
     public $rundeck;
 
+    /**
+     * @var SystemInfoOs
+     */
     public $os;
 
+    /**
+     * @var SystemInfoStats
+     */
     public $stats;
 
     /**

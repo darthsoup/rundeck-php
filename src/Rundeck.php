@@ -8,6 +8,9 @@ use DarthSoup\Rundeck\Api\Job;
 use DarthSoup\Rundeck\Api\Project;
 use DarthSoup\Rundeck\Api\System;
 
+/**
+ * Rundeck API Manager
+ */
 class Rundeck
 {
     /**

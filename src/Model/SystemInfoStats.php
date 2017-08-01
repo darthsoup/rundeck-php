@@ -2,6 +2,9 @@
 
 namespace DarthSoup\Rundeck\Model;
 
+/**
+ * Model SystemInfoStats
+ */
 class SystemInfoStats extends AbstractModel
 {
     public $uptime;

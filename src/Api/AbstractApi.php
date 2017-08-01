@@ -4,6 +4,9 @@ namespace DarthSoup\Rundeck\Api;
 
 use DarthSoup\Rundeck\Adapter\AdapterInterface;
 
+/**
+ * AbstractApi
+ */
 abstract class AbstractApi
 {
     /**

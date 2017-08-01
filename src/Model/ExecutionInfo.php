@@ -5,7 +5,7 @@ namespace DarthSoup\Rundeck\Model;
 use DateTime;
 
 /**
- * Class Execution
+ * Class ExecutionInfo
  */
 class ExecutionInfo extends AbstractModel
 {
@@ -13,7 +13,7 @@ class ExecutionInfo extends AbstractModel
      * @var int
      */
     public $id;
-    
+
     /**
      * @var string
      */
