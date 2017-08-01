@@ -33,13 +33,25 @@ abstract class AbstractModel
     }
 
     /**
-     * @param string $str Snake case string
-     * @return string Camel case string
+     * @param string $str
+     * @return string Camelcase string
      */
     protected static function camelCase($str): string
     {
         return lcfirst(preg_replace_callback('/(^|_)([a-z])/', function ($match) {
             return strtoupper($match[2]);
         }, $str));
+    }
+
+    /**
+     * @param $timestamp
+     * @return \DateTime
+     */
+    protected static function timestampToDateTime($timestamp): \DateTime
+    {
+        // Rundeck use Java Timestamp which includes unixtimestamps with milliseconds
+        $timestamp = (int)($timestamp / 1000);
+
+        return (new \DateTime())->setTimestamp($timestamp);
     }
 }

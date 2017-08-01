@@ -3,13 +3,7 @@
 namespace DarthSoup\Rundeck;
 
 use DarthSoup\Rundeck\Adapter\AdapterInterface;
-use DarthSoup\Rundeck\Api\Execution;
-use DarthSoup\Rundeck\Api\ExecutionMode;
-use DarthSoup\Rundeck\Api\Job;
-use DarthSoup\Rundeck\Api\LogStorage;
-use DarthSoup\Rundeck\Api\Project;
 use DarthSoup\Rundeck\Api\System;
-use DarthSoup\Rundeck\Api\Token;
 
 class Rundeck
 {
@@ -39,53 +33,5 @@ class Rundeck
     public function system()
     {
         return new System($this->adapter, $this->api);
-    }
-
-    /**
-     * @return Job
-     */
-    public function job()
-    {
-        return new Job($this->adapter, $this->api);
-    }
-
-    /**
-     * @return Token
-     */
-    public function token()
-    {
-        return new Token($this->adapter, $this->api);
-    }
-
-    /**
-     * @return Execution
-     */
-    public function execution()
-    {
-        return new Execution($this->adapter, $this->api);
-    }
-
-    /**
-     * @return ExecutionMode
-     */
-    public function executionmode()
-    {
-        return new ExecutionMode($this->adapter, $this->api);
-    }
-
-    /**
-     * @return LogStorage
-     */
-    public function logstorage()
-    {
-        return new LogStorage($this->adapter, $this->api);
-    }
-
-    /**
-     * @return Project
-     */
-    public function project()
-    {
-        return new Project($this->adapter, $this->api);
     }
 }
