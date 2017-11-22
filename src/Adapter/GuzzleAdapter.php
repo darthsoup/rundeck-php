@@ -9,9 +9,9 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
 
 /**
- * Adapter for guzzlehttp/guzzle
+ * Adapter for guzzlehttp/guzzle (Version 6)
  */
-class GuzzleAdapter implements AdapterInterface
+class Guzzle6Adapter implements AdapterInterface
 {
     /**
      * @var ClientInterface
