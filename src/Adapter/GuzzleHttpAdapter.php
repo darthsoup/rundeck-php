@@ -11,7 +11,7 @@ use GuzzleHttp\Psr7\Response;
 /**
  * Adapter for guzzlehttp/guzzle (Version 6)
  */
-class Guzzle6Adapter implements AdapterInterface
+class GuzzleHttpAdapter implements AdapterInterface
 {
     /**
      * @var ClientInterface
@@ -35,6 +35,12 @@ class Guzzle6Adapter implements AdapterInterface
         ]]);
     }
 
+    /**
+     * GuzzleHttp GET
+     *
+     * @param string $url
+     * @return void
+     */
     public function get(string $url)
     {
         try {
@@ -47,8 +53,18 @@ class Guzzle6Adapter implements AdapterInterface
         return $this->response->getBody();
     }
 
-    public function post(string $url, array $options = [])
+    /**
+     * GuzzleHttp POST
+     *
+     * @param string $url
+     * @param array $content
+     * @return void
+     */
+    public function post(string $url, array $content = [])
     {
+        $options = [];
+        $options['json'] = $content;
+
         try {
             $this->response = $this->client->post($url, $options);
         } catch (RequestException $e) {

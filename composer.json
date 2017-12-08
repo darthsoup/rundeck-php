@@ -13,10 +13,11 @@
     },
     "require-dev": {
         "mockery/mockery": "~0.9",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~6.0",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "suggest": {
-        "guzzlehttp/guzzle": "Guzzle 5 or 6"
+        "guzzlehttp/guzzle": "useable with guzzle 5 or 6"
     },
     "autoload": {
         "psr-4": {
