@@ -7,6 +7,7 @@ use DarthSoup\Rundeck\Api\Execution;
 use DarthSoup\Rundeck\Api\Job;
 use DarthSoup\Rundeck\Api\Project;
 use DarthSoup\Rundeck\Api\System;
+use DarthSoup\Rundeck\Api\User;
 
 /**
  * Rundeck API Manager
@@ -63,5 +64,13 @@ class Rundeck
     public function project()
     {
         return new Project($this->adapter, $this->api);
+    }
+
+    /*
+     * @return User
+     */
+    public function user()
+    {
+        return new User($this->adapter, $this->api);
     }
 }
