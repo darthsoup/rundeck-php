@@ -15,10 +15,10 @@ class Execution extends AbstractApi
      */
     public function info(int $id)
     {
-        $executioninfo = $this->adapter->get($this->api . '/execution/' . $id);
+        $output = $this->adapter->get($this->api . '/execution/' . $id);
 
-        $executioninfo = json_decode($executioninfo);
+        $executionInfo = json_decode($output);
 
-        return new ExecutionInfo($executioninfo);
+        return new ExecutionInfo($executionInfo);
     }
 }

@@ -75,6 +75,11 @@ class ExecutionInfo extends AbstractModel
     public $successfulNodes;
 
     /**
+     * @var string[]
+     */
+    public $failedNodes;
+    
+    /**
      * @param array $parameters
      */
     public function build(array $parameters)
