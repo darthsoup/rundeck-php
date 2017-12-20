@@ -7,6 +7,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\TransferStats;
 
 /**
  * Adapter for guzzlehttp/guzzle (Version 6)
@@ -39,12 +40,18 @@ class GuzzleHttpAdapter implements AdapterInterface
      * GuzzleHttp GET
      *
      * @param string $url
+     * @param array $query
      * @return void
      */
-    public function get(string $url)
+    public function get(string $url, array $query = [])
     {
+        $options = [];
+        if (!empty($query)) {
+            $options['query'] = $query;
+        }
+
         try {
-            $this->response = $this->client->get($url);
+            $this->response = $this->client->get($url, $options);
         } catch (RequestException $e) {
             $this->response = $e->getResponse();
             $this->handleError();

@@ -57,4 +57,13 @@ abstract class AbstractModel
 
         return (new \DateTime())->setTimestamp($timestamp);
     }
+
+    /**
+     * @param string $date
+     * @return \DateTime
+     */
+    protected static function atomToDateTime(string $date): \DateTime
+    {
+        return \DateTime::createFromFormat(\DateTime::ATOM, $date);
+    }
 }

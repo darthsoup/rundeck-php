@@ -11,11 +11,11 @@ interface AdapterInterface
      * @param string $url
      * @return mixed
      */
-    public function get(string $url);
+    public function get(string $url, array $query = []);
 
     /**
      * @param string $url
      * @return mixed
      */
-    public function post(string $url);
+    public function post(string $url, array $content = []);
 }
