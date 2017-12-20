@@ -13,8 +13,8 @@ class Execution extends AbstractApi
      * Get the status for an execution by ID.
      * 
      * @link http://rundeck.org/docs/api/#execution-info
-     * @param int $id Exection Id
-     * @return ExecutionInfo
+     * @param int $id Execution Id
+     * @return Model\ExecutionInfo
      */
     public function info(int $id)
     {
@@ -26,13 +26,14 @@ class Execution extends AbstractApi
     }
 
     /**
-     * Get the output for an execution by ID. The execution can be currently running or may have already completed. Output can be filtered down to a specific node or workflow step.
+     * Get the output for an execution by ID. The execution can be currently running or may have already completed. 
+     * Output can be filtered down to a specific node or workflow step.
      * 
      * @link http://rundeck.org/docs/api/#execution-output
-     * @param string $project Job UUID
+     * @param string $id Execution Id
      * @param mixed $node
      * @param mixed $stepctx
-     * @return void
+     * @return Model\ExecutionOutput
      */
     public function output(string $id, $node = null, $step = null, array $options = [])
     {
@@ -52,6 +53,22 @@ class Execution extends AbstractApi
         }
 
         $output = $this->adapter->get($apiurl, $options);
+       
+        $executionOutput = json_decode($output);
+
+        return new Model\ExecutionOutput($executionOutput);
+    }
+
+    /**
+     * Get the metadata associated with workflow step state changes along with the log output, optionally excluding log output.
+     * 
+     * @link http://rundeck.org/docs/api/#execution-output-with-state
+     * @param string $id
+     * @return Model\ExecutionOutput
+     */
+    public function outputState(string $id, array $options = [])
+    {
+        $output = $this->adapter->get($this->api. '/execution/' . $id . '/output/state', $options);
        
         $executionOutput = json_decode($output);
 

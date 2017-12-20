@@ -28,11 +28,21 @@ class ExecutionEntry extends AbstractModel
     * @var string
     */
    public $level;
+   
+   /**
+    * @var string
+    */
+   public $type;
 
    /**
     * @var string
     */
    public $user;
+
+   /**
+    * @var integer
+    */
+   public $step;
 
    /**
     * @var integer
