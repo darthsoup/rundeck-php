@@ -63,7 +63,7 @@ class Execution extends AbstractApi
      * Get the metadata associated with workflow step state changes along with the log output, optionally excluding log output.
      * 
      * @link http://rundeck.org/docs/api/#execution-output-with-state
-     * @param string $id
+     * @param string $id Execution Id
      * @return Model\ExecutionOutput
      */
     public function outputState(string $id, array $options = [])
@@ -73,5 +73,26 @@ class Execution extends AbstractApi
         $executionOutput = json_decode($output);
 
         return new Model\ExecutionOutput($executionOutput);
+    }
+
+    /**
+     * Abort a running execution by ID.
+     * 
+     * @link http://rundeck.org/docs/api/#aborting-executions
+     * @param string $id Execution Id
+     * @return Model\ExecutionOutput
+     */
+    public function abort(string $id, string $asUser = null)
+    {
+        $options = [];
+        if (!empty($asUser)) {
+            $options['asUser'] = $asUser; 
+        }
+
+        $output = $this->adapter->get($this->api. '/execution/' . $id . '/abort', $options);
+       
+        $executionAbort = json_decode($output);
+
+        return new Model\ExecutionAbort($executionAbort);
     }
 }
