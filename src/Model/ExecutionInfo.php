@@ -55,6 +55,11 @@ class ExecutionInfo extends AbstractModel
     public $date_ended;
 
     /**
+     * @var string
+     */
+    public $abortedby;
+
+    /**
      * @var JobMetadata
      */
     public $job;

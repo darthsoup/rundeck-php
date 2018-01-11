@@ -31,6 +31,7 @@ class GuzzleHttpAdapter implements AdapterInterface
     public function __construct($token, ClientInterface $client = null)
     {
         $this->client = $client ?: new Client(['headers' => [
+            'User-Agent' => 'Rundeck-PHP',
             'Accept' => 'application/json',
             'X-Rundeck-Auth-Token' => $token,
         ]]);

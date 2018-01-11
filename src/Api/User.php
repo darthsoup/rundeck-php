@@ -14,13 +14,14 @@ class User extends AbstractApi
     /**
      * Get a list of all the users.
      *
+     * @link http://rundeck.org/docs/api/#list-users
      * @return User[]
      */
     public function getUsers()
     {
-        $users = $this->adapter->get($this->api . '/user/list');
+        $output = $this->adapter->get($this->api . '/user/list');
 
-        $users = json_decode($users);
+        $users = json_decode($output);
 
         return array_map(function ($users) {
             return new Model\User($users);
@@ -30,6 +31,8 @@ class User extends AbstractApi
     /**
      * Get current user profile data or a another profile.
      *
+     * @link http://rundeck.org/docs/api/#get-user-profile
+     * @link http://rundeck.org/docs/api/#get-another-user-profile
      * @param string $user
      * @return User
      */
@@ -41,9 +44,9 @@ class User extends AbstractApi
             $apiurl = $this->api . '/user/info';
         }
 
-        $user = $this->adapter->get($apiurl);
+        $output = $this->adapter->get($apiurl);
 
-        $user = json_decode($user);
+        $user = json_decode($output);
 
         return new Model\User($user);
     }
@@ -51,6 +54,8 @@ class User extends AbstractApi
     /**
      * Modify same user profile data or a another profile.
      *
+     * @link http://rundeck.org/docs/api/#modify-user-profile
+     * @link http://rundeck.org/docs/api/#modify-another-user-profile
      * @param string $user
      * @param array $options
      * @return User
@@ -63,9 +68,9 @@ class User extends AbstractApi
             $apiurl = $this->api . '/user/info';
         }
 
-        $user = $this->adapter->post($apiurl, $options);
+        $output = $this->adapter->post($apiurl, $options);
 
-        $user = json_decode($user);
+        $user = json_decode($output);
 
         return new Model\User($user);
     }

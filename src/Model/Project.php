@@ -13,12 +13,12 @@ class Project extends AbstractModel
     public $url;
 
     /**
-     * @var $string
+     * @var string
      */
     public $name;
 
     /**
-     * @var $description
+     * @var description
      */
     public $description;
 }

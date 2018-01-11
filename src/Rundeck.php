@@ -8,6 +8,7 @@ use DarthSoup\Rundeck\Api\Job;
 use DarthSoup\Rundeck\Api\Project;
 use DarthSoup\Rundeck\Api\System;
 use DarthSoup\Rundeck\Api\User;
+use DarthSoup\Rundeck\Api\LogStorage;
 
 /**
  * Rundeck API Manager
@@ -37,7 +38,7 @@ class Rundeck
     /**
      * @return System
      */
-    public function system()
+    public function system(): System
     {
         return new System($this->adapter, $this->api);
     }
@@ -45,7 +46,7 @@ class Rundeck
     /**
      * @return Job
      */
-    public function job()
+    public function job(): Job
     {
         return new Job($this->adapter, $this->api);
     }
@@ -53,7 +54,7 @@ class Rundeck
     /**
      * @return Execution
      */
-    public function execution()
+    public function execution(): Execution
     {
         return new Execution($this->adapter, $this->api);
     }
@@ -61,7 +62,7 @@ class Rundeck
     /*
      * @return Project
      */
-    public function project()
+    public function project(): Project
     {
         return new Project($this->adapter, $this->api);
     }
@@ -69,8 +70,16 @@ class Rundeck
     /*
      * @return User
      */
-    public function user()
+    public function user(): User
     {
         return new User($this->adapter, $this->api);
+    }
+
+    /*
+     * @return LogStorage
+     */
+    public function logstorage(): LogStorage
+    {
+        return new LogStorage($this->adapter, $this->api);
     }
 }

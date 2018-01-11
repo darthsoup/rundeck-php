@@ -10,13 +10,16 @@ use DarthSoup\Rundeck\Model\SystemInfo;
 class System extends AbstractApi
 {
     /**
+     * Get Rundeck server information and stats.
+     * 
+     * @link http://rundeck.org/docs/api/#system-info
      * @return SystemInfo
      */
     public function info()
     {
-        $system_info = $this->adapter->get($this->api . '/system/info');
+        $output = $this->adapter->get($this->api . '/system/info');
 
-        $system_info = json_decode($system_info);
+        $system_info = json_decode($output);
 
         return new SystemInfo($system_info->system);
     }
