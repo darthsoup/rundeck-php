@@ -14,7 +14,7 @@ class ProjectConfiguration extends AbstractModel
     {
         foreach ($parameters as $property => $value) {
             if (is_numeric($value)) {
-               $value = (int) $value;
+                $value = (int) $value;
             }
             $this->$property = $value;
         }

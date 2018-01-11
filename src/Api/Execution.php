@@ -44,7 +44,7 @@ class Execution extends AbstractApi
      * @return stdClass
      */
     public function getRunning(string $project, array $options = [])
-    {        
+    {
         $output = $this->adapter->get($this->api. '/project/' . $project . '/executions/running');
 
         $output = json_decode($output);
@@ -63,7 +63,7 @@ class Execution extends AbstractApi
 
     /**
      * Get the status for an execution by ID.
-     * 
+     *
      * @link http://rundeck.org/docs/api/#execution-info
      * @param int $id Execution Id
      * @return Model\ExecutionInfo
@@ -78,9 +78,9 @@ class Execution extends AbstractApi
     }
 
     /**
-     * Get the output for an execution by ID. The execution can be currently running or may have already completed. 
+     * Get the output for an execution by ID. The execution can be currently running or may have already completed.
      * Output can be filtered down to a specific node or workflow step.
-     * 
+     *
      * @link http://rundeck.org/docs/api/#execution-output
      * @param string $id Execution Id
      * @param mixed $node
@@ -113,7 +113,7 @@ class Execution extends AbstractApi
 
     /**
      * Get the metadata associated with workflow step state changes along with the log output, optionally excluding log output.
-     * 
+     *
      * @link http://rundeck.org/docs/api/#execution-output-with-state
      * @param string $id Execution Id
      * @param array $options Query Options
@@ -130,7 +130,7 @@ class Execution extends AbstractApi
 
     /**
      * Abort a running execution by ID.
-     * 
+     *
      * @link http://rundeck.org/docs/api/#aborting-executions
      * @param string $id Execution Id
      * @return Model\ExecutionOutput

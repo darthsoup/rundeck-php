@@ -11,7 +11,7 @@ class Project extends AbstractApi
 {
     /**
      * List the existing projects on the server.
-     * 
+     *
      * @link http://rundeck.org/docs/api/#listing-projects
      * @return Model\Project[]
      */
@@ -28,7 +28,7 @@ class Project extends AbstractApi
 
     /**
      * Get information about a project.
-     * 
+     *
      * @link http://rundeck.org/docs/api/#getting-project-info
      * @param string $project
      * @return Model\Project
@@ -44,7 +44,7 @@ class Project extends AbstractApi
 
     /**
      * Retrieve or modify the project configuration data. Requires configure authorization for the project.
-     * 
+     *
      * @link http://rundeck.org/docs/api/#project-configuration
      * @param string $project
      * @return Model\ProjectConfiguration

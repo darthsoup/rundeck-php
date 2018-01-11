@@ -9,22 +9,22 @@ use DateTime;
  */
 class ExecutionAbort extends AbstractModel
 {
-   /**
-    * @var \stdClass
-    */
-   public $abort;
+    /**
+     * @var \stdClass
+     */
+    public $abort;
 
-   /**
-    * @var \stdClass
-    */
-   public $execution;
+    /**
+     * @var \stdClass
+     */
+    public $execution;
 
-   /**
-    * @param array $parameters
-    */
-   public function build(array $parameters)
-   {
-      $this->abort = (object) $parameters['abort'];
-      $this->execution = (object) $parameters['execution'];
-   }
+    /**
+     * @param array $parameters
+     */
+    public function build(array $parameters)
+    {
+        $this->abort = (object) $parameters['abort'];
+        $this->execution = (object) $parameters['execution'];
+    }
 }

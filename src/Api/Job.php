@@ -46,7 +46,7 @@ class Job extends AbstractApi
 
     /**
      * Get metadata about a specific job.
-     * 
+     *
      * @link http://rundeck.org/docs/api/#get-job-metadata
      * @param string $id
      * @return Model\JobMetadata

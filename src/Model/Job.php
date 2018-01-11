@@ -66,5 +66,4 @@ class Job extends AbstractModel
      * @var boolean
      */
     public $serverOwner;
-
 }

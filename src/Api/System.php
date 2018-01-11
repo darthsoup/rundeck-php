@@ -11,7 +11,7 @@ class System extends AbstractApi
 {
     /**
      * Get Rundeck server information and stats.
-     * 
+     *
      * @link http://rundeck.org/docs/api/#system-info
      * @return SystemInfo
      */

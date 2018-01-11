@@ -7,44 +7,44 @@ namespace DarthSoup\Rundeck\Model;
  */
 class LogStorage extends AbstractModel
 {
-   /**
-    * @var boolean
-    */
-   public $enabled;
+    /**
+     * @var boolean
+     */
+    public $enabled;
 
-   /**
-    * @var string
-    */
-   public $pluginName;
+    /**
+     * @var string
+     */
+    public $pluginName;
 
-   /**
-    * @var integer
-    */
-   public $succeededCount;
+    /**
+     * @var integer
+     */
+    public $succeededCount;
 
-   /**
-    * @var integer
-    */
+    /**
+     * @var integer
+     */
 
-   public $failedCount;
+    public $failedCount;
    
-   /**
-    * @var integer
-    */
-   public $queuedCount;
+    /**
+     * @var integer
+     */
+    public $queuedCount;
 
-   /**
-    * @var integer
-    */
-   public $totalCount;
+    /**
+     * @var integer
+     */
+    public $totalCount;
 
-   /**
-    * @var integer
-    */
-   public $incompleteCount;
+    /**
+     * @var integer
+     */
+    public $incompleteCount;
 
-   /**
-    * @var integer
-    */
-   public $missingCount;
+    /**
+     * @var integer
+     */
+    public $missingCount;
 }
