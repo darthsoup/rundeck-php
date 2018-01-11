@@ -1,47 +1,61 @@
-Rundeck PHP API
-===============
+# Rundeck API Wrapper for PHP
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/darthsoup/rundeck-php.svg?style=flat-square)](https://packagist.org/packages/darthsoup/rundeck-php)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/darthsoup/rundeck-php.svg?style=flat-square)](https://packagist.org/packages/darthsoup/rundeck-php)
 
 PHP API Wrapper for [Rundeck](http://rundeck.org/)
 
-This package is work in progress, not all api features are included
+This package is work in progress, not all api features are currently included.
 
-The current tested API version of rundeck is 20, other my work but it's untested.
+The currently tested API version of Rundeck is `20`, other versions may work but they are untested.
 
-## Installation
+## Install
 
-The recommended way to install Guzzle is through
-[Composer](http://getcomposer.org).
-
-```bash
-# Install Composer
-curl -sS https://getcomposer.org/installer | php
-```
-
-Next, run the Composer command to install the latest stable version.
+You can install the package via composer:
 
 ```bash
-php composer.phar require darthsoup/rundeck-php
+composer require darthsoup/rundeck-php
 ```
 
 ## Usage
 
 ### Init API Wrapper
 
-To init the api wrapper, register a http wrapper and create the rundeck base class.
+To init the API wrapper, register a HTTP adapter and create the Rundeck base class.
 
 ```php
 require_once '../vendor/autoload.php';
 
-$adapter = new DarthSoup\Rundeck\Adapter\Guzzle6Adapter('<yourrundeckapitoken>');
+$adapter = new DarthSoup\Rundeck\Adapter\GuzzleHttpAdapter('<yourRundeckApiToken>');
 
-$rundeck = new DarthSoup\Rundeck\Rundeck($adapter, 'https://<yourrundeckurl>/api/20');
+$rundeck = new DarthSoup\Rundeck\Rundeck($adapter, 'https://<yourRundeckUrl>/api/20');
 ```
 
-You are now ready to start
+You are now ready to start.
 
-### Basic API Request
+### Start a Job
 
-Get current rundeck system info
+Jobs are started by `runJob` with the Job UUID as first parameter.
+You also can add a `argString` to include some options.
+
+```php
+$job = $rundeck->job()->runJob('<YourJobUuid></YourJobUuid>', ['argString' => '-ArgTest1 yourstring'])
+var_dump($job);
+```
+
+### Execution Info of a Job
+
+The Output of a Execution can returned by this command.
+
+```php
+$execution = $rundeck->execution()->output(<ExecutionId>)
+var_dump($execution);
+```
+
+### Rundeck System Info
+
+Get current Rundeck System Info
 
 ```php
 $systeminfo = $rundeck->system()->info()
