@@ -21,7 +21,7 @@ class User extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/user/list');
 
-        $users = json_decode($output);
+        $users = json_decode($output, true);
 
         return array_map(function ($users) {
             return new Model\User($users);
@@ -46,7 +46,7 @@ class User extends AbstractApi
 
         $output = $this->adapter->get($apiurl);
 
-        $user = json_decode($output);
+        $user = json_decode($output, true);
 
         return new Model\User($user);
     }
@@ -70,7 +70,7 @@ class User extends AbstractApi
 
         $output = $this->adapter->post($apiurl, $options);
 
-        $user = json_decode($output);
+        $user = json_decode($output, true);
 
         return new Model\User($user);
     }

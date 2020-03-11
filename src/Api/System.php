@@ -19,7 +19,7 @@ class System extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/system/info');
 
-        $system_info = json_decode($output);
+        $system_info = json_decode($output, true);
 
         return new SystemInfo($system_info->system);
     }

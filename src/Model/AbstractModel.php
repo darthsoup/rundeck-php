@@ -49,6 +49,7 @@ abstract class AbstractModel
     /**
      * @param $timestamp
      * @return \DateTime
+     * @throws \Exception
      */
     protected static function timestampToDateTime($timestamp): \DateTime
     {

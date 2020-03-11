@@ -19,7 +19,7 @@ class Project extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/projects');
 
-        $projects = json_decode($output);
+        $projects = json_decode($output, true);
 
         return array_map(function ($projects) {
             return new Model\Project($projects);
@@ -37,9 +37,9 @@ class Project extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/project/' . $project);
 
-        $project = json_decode($output);
+        $project = json_decode($output, true);
 
-        return new Model\Project(json_decode($project));
+        return new Model\Project(json_decode($project, true));
     }
 
     /**
@@ -53,8 +53,8 @@ class Project extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/project/' . $project . '/config');
 
-        $projectConfirguration = json_decode($output);
-        
+        $projectConfirguration = json_decode($output, true);
+
         return new Model\ProjectConfiguration($projectConfirguration);
     }
 }

@@ -92,9 +92,9 @@ class ExecutionOutput extends AbstractModel
 
                 foreach ($value as $entry) {
                     if (is_object($entry)) {
-                        array_push($entries, new ExecutionEntry($entry));
+                        $entries[] = new ExecutionEntry($entry);
                     } else {
-                        array_push($entries, $entry);
+                        $entries[] = $entry;
                     }
                 }
 

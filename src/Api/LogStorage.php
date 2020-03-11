@@ -21,7 +21,7 @@ class LogStorage extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/system/logstorage');
 
-        $logstorage = json_decode($output);
+        $logstorage = json_decode($output, true);
 
         return new Model\LogStorage($logstorage);
     }

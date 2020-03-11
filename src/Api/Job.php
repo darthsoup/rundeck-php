@@ -20,7 +20,7 @@ class Job extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/project/' . $project. '/jobs');
 
-        $jobs = json_decode($output);
+        $jobs = json_decode($output, true);
 
         return array_map(function ($jobs) {
             return new Model\Job($jobs);
@@ -39,7 +39,7 @@ class Job extends AbstractApi
     {
         $output = $this->adapter->post($this->api . '/job/' . $id . '/run', $options);
 
-        $execution = json_decode($output);
+        $execution = json_decode($output, true);
 
         return new Model\Execution($execution);
     }
@@ -55,7 +55,7 @@ class Job extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/job/' . $id . '/info');
 
-        $metadata = json_decode($output);
+        $metadata = json_decode($output, true);
 
         return new Model\JobMetadata($metadata);
     }

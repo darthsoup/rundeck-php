@@ -21,7 +21,7 @@ class Execution extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/job/' . $id . '/executions', $options);
 
-        $output = json_decode($output);
+        $output = json_decode($output, true);
 
         $paging = $output->paging;
         $executions = array_map(function ($output) {
@@ -47,7 +47,7 @@ class Execution extends AbstractApi
     {
         $output = $this->adapter->get($this->api. '/project/' . $project . '/executions/running');
 
-        $output = json_decode($output);
+        $output = json_decode($output, true);
 
         $paging = $output->paging;
         $executions = array_map(function ($output) {
@@ -72,7 +72,7 @@ class Execution extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/execution/' . $id);
 
-        $executionInfo = json_decode($output);
+        $executionInfo = json_decode($output, true);
 
         return new Model\ExecutionInfo($executionInfo);
     }
@@ -87,7 +87,7 @@ class Execution extends AbstractApi
      * @param mixed $stepctx
      * @return Model\ExecutionOutput
      */
-    public function output(string $id, $node = null, $step = null, array $options = [])
+    public function output(string $id, $node = null, $stepctx = null, array $options = [])
     {
         if (!empty($node)) {
             if (!empty($stepctx)) {
@@ -106,7 +106,7 @@ class Execution extends AbstractApi
 
         $output = $this->adapter->get($apiurl, $options);
 
-        $executionOutput = json_decode($output);
+        $executionOutput = json_decode($output, true);
 
         return new Model\ExecutionOutput($executionOutput);
     }
@@ -123,7 +123,7 @@ class Execution extends AbstractApi
     {
         $output = $this->adapter->get($this->api . '/execution/' . $id . '/output/state', $options);
 
-        $executionOutput = json_decode($output);
+        $executionOutput = json_decode($output, true);
 
         return new Model\ExecutionOutput($executionOutput);
     }
@@ -144,7 +144,7 @@ class Execution extends AbstractApi
 
         $output = $this->adapter->get($this->api . '/execution/' . $id . '/abort', $options);
 
-        $executionAbort = json_decode($output);
+        $executionAbort = json_decode($output, true);
 
         return new Model\ExecutionAbort($executionAbort);
     }
