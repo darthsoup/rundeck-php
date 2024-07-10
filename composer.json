@@ -14,7 +14,7 @@
     "require-dev": {
         "mockery/mockery": "~1.3",
         "phpunit/phpunit": "~6.0",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~7.8"
     },
     "suggest": {
         "guzzlehttp/guzzle": "useable with guzzle 5 or 6"
